@@ -1,0 +1,59 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Main{}
+
+class Decryption {
+    - dictionary: Map<String, String>
+    - phrase: String
+    - tempMorse: String
+    - morse: String
+    Decryption(morse: String)
+    + Decrypt(): String
+    + getMorse(): String
+    + setMorse(morse: String)
+    + getPhrase(): String
+    + toString(): String
+}
+
+class Encryption {
+    - dictionary: Map<String, String>
+    - phrase: String
+    - morse: String
+    Encryption(phrase: String)
+    + Encrypt(): String
+    + getPhrase(): String
+    + setPhrase(phrase: String)
+    + getMorse(): String
+    + toString(): String
+}
+
+class File {
+    - phrase: String
+    - morse: String
+    - counter: int
+    - tempString: String
+    - lines: List<String>
+    - path: Path
+    - status: boolean
+    File()
+    + readHistory()
+    + getStatus(): boolean
+    + printHistory()
+    + writeHistory(phrase: String, morse: String)
+    + getPath(): Path
+    + setPath(pathadd: String)
+    + setPath(path: Path, pathadd: String)
+}
+
+class MorseDictionary {
+    + MORSE_DICTIONARY: Map<String, String>
+}
+
+Decryption -- MorseDictionary
+Encryption -- MorseDictionary
+File -- MorseDictionary
+File "1" -- "*" Decryption
+File "1" -- "*" Encryption
+
+@enduml

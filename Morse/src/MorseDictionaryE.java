@@ -1,13 +1,20 @@
+/**
+ * Encrypter and Decrypter of code Morse
+ *
+ * @author Bryan Ciaponi
+ * @version January 2025
+ */
+
 import java.util.*;
 
-//Metodo sul come rendere pubblico un Dizionario in Java tratto da Stack Overflow
+// Method on how to make a Dictionary public in Java from Stack Overflow
 public class MorseDictionaryE {
-    // Dichiarazione di una mappa pubblica (o "Dizionario" in Python)
-    // statica e finale (non è modificabile dopo la sua inizializzazione)
+    // Declaration of a public static and final map (or "Dictionary" in Python)
+    // This map cannot be modified after initialization
     public static final Map<String, String> MORSE_DICTIONARY;
 
     static {
-        // Inizializzazione della mappa
+        // Initialize the map
         Map<String, String> tempMap = new HashMap<>();
         tempMap.put("a", ".-");
         tempMap.put("b", "-...");
@@ -72,8 +79,7 @@ public class MorseDictionaryE {
         tempMap.put("è", ".-..-");
         tempMap.put("à", ".--.-");
 
-
-        // Rendi la mappa immutabile
+        // Make the map immutable (it cannot be modified after this point)
         MORSE_DICTIONARY = Collections.unmodifiableMap(tempMap);
     }
 }
